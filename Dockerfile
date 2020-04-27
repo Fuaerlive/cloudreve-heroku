@@ -4,7 +4,7 @@ ARG CLOUDREVE_VERSION="3.0.0"
 
 RUN cd /root/ \
     && wget https://github.com/cloudreve/Cloudreve/releases/download/$CLOUDREVE_VERSION/cloudreve_$CLOUDREVE_VERSION_linux_amd64.tar.gz
-    && tar -zxvf cloudreve_VERSION_OS_ARCH.tar.gz
+
 
 ADD mycloudreve.ini /root/Cloudreve/mycloudreve.ini
 ADD run.sh /root/Cloudreve/run.sh
