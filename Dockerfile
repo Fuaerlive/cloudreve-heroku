@@ -3,7 +3,7 @@ FROM alpine:3.11
 ARG CLOUDREVE_VERSION="3.0.0"
 
 RUN cd /root/ \
-    && wget https://github.com/cloudreve/Cloudreve/releases/download/$CLOUDREVE_VERSION/cloudreve_$CLOUDREVE_VERSION_linux_amd64.tar.gz
+    && wget -q https://github.com/cloudreve/Cloudreve/releases/download/3.0.0/cloudreve_3.0.0_linux_amd64.tar.gz
 
 
 ADD mycloudreve.ini /root/Cloudreve/mycloudreve.ini
