@@ -1,4 +1,4 @@
-FROM alpine:3.9.5
+FROM golang:1.14.1-alpine3.11 as builder
 
 ARG CLOUDREVE_VERSION="3.0.0"
 
