@@ -2,7 +2,6 @@ FROM golang:1.14.1-alpine3.11 as builder
 
 ARG CLOUDREVE_VERSION="3.0.0"
 
-WORKDIR /ProjectCloudreve
 RUN apk update \
     && apk add git yarn build-base gcc abuild binutils binutils-doc gcc-doc
 
