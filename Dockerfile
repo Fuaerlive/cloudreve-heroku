@@ -1,23 +1,10 @@
-FROM golang:1.14.1-alpine3.11 as builder
+FROM alpine:3.11
 
 ARG CLOUDREVE_VERSION="3.0.0"
 
-RUN apk update \
-    && apk add git yarn build-base gcc abuild binutils binutils-doc gcc-doc
-
 RUN cd /root/ \
-    && git clone --recurse-submodules https://github.com/cloudreve/Cloudreve.git
-
-RUN cd /root/Cloudreve/assets \
-    && yarn install --network-timeout 1000000 \
-    && yarn run build
-
-RUN cd /root/Cloudreve \
-    && go get github.com/rakyll/statik \
-    && statik -src=assets/build/ -include=*.html,*.js,*.json,*.css,*.png,*.svg,*.ico -f \
-    && git checkout ${CLOUDREVE_VERSION} \
-    && export COMMIT_SHA=$(git rev-parse --short HEAD) \
-    && go build -a -o cloudreve-main -ldflags " -X 'github.com/HFO4/cloudreve/pkg/conf.BackendVersion=$CLOUDREVE_VERSION' -X 'github.com/HFO4/cloudreve/pkg/conf.LastCommit=$COMMIT_SHA'"
+    && wget https://github.com/cloudreve/Cloudreve/releases/download/$CLOUDREVE_VERSION/cloudreve_$CLOUDREVE_VERSION_linux_amd64.tar.gz
+    && tar -zxvf cloudreve_VERSION_OS_ARCH.tar.gz
 
 ADD mycloudreve.ini /root/Cloudreve/mycloudreve.ini
 ADD run.sh /root/Cloudreve/run.sh
