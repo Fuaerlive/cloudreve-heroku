@@ -7,7 +7,7 @@ ADD run.sh /root/Cloudreve/run.sh
 
 RUN cd /root/Cloudreve/ \
     && wget -q https://github.com/cloudreve/Cloudreve/releases/download/3.0.0/cloudreve_3.0.0_linux_amd64.tar.gz
-    && tar -zxvf cloudreve_VERSION_OS_ARCH.tar.gz
+    && tar -zxvf cloudreve_3.0.0_linux_amd64.tar.gz
 
 RUN chmod +x /root/Cloudreve/cloudreve
 RUN chmod +x /root/Cloudreve/run.sh
