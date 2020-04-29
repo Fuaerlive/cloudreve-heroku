@@ -14,9 +14,9 @@ RUN cd ./Cloudreve/assets \
 RUN cd ../ \
     && go get github.com/rakyll/statik \
     && statik -src=assets/build/ -include=*.html,*.js,*.json,*.css,*.png,*.svg,*.ico -f \
-    && git checkout ${CLOUDREVE_VERSION} \
     && export COMMIT_SHA=$(git rev-parse --short HEAD) \
-    && go build -a -o cloudreve-main -ldflags " -X 'github.com/HFO4/cloudreve/pkg/conf.BackendVersion=$CLOUDREVE_VERSION' -X 'github.com/HFO4/cloudreve/pkg/conf.LastCommit=$COMMIT_SHA'"
+    && export VERSION=$(git describe --tags) \
+    && go build -a -o cloudreve -ldflags " -X 'github.com/HFO4/cloudreve/pkg/conf.BackendVersion=$VERSION' -X 'github.com/HFO4/cloudreve/pkg/conf.LastCommit=$COMMIT_SHA'"
 
 
 FROM alpine:3.11
