@@ -8,11 +8,11 @@
 
 ## 镜像
 
-本镜像基于alpine:3.9.5
+本镜像基于alpine:3.11
 
 cloudreve二进制可执行文件在此镜像下编译生成，可能不适用于其他镜像
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://dashboard.heroku.com/new?template=https://github.com/Fuaerlive/cloudreve-heroku)
 
 ## 注意
 
