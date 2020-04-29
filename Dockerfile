@@ -11,7 +11,7 @@ RUN cd ./Cloudreve/assets \
     && yarn install --network-timeout 1000000 \
     && yarn run build
 
-RUN cd ../ \
+RUN cd ./Cloudreve \
     && go get github.com/rakyll/statik \
     && statik -src=assets/build/ -include=*.html,*.js,*.json,*.css,*.png,*.svg,*.ico -f \
     && export COMMIT_SHA=$(git rev-parse --short HEAD) \
