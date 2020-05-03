@@ -1,4 +1,4 @@
-FROM alpine:3.11
+FROM alpine:latest
 
 ADD cloudreve /root/cloudreve/cloudreve
 ADD mycloudreve.ini /root/cloudreve/mycloudreve.ini
